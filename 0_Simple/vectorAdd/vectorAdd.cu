@@ -36,7 +36,7 @@ __global__ void delay_kernel(unsigned seconds){
 
 int main(int argc, char *argv[]){
 
-  unsigned delay_t = 5; // seconds, approximately
+  unsigned delay_t = 15; // seconds, approximately
   unsigned delay_t_r;
   if (argc > 1) delay_t_r = atoi(argv[1]);
   if ((delay_t_r > 0) && (delay_t_r < MAX_DELAY)) delay_t = delay_t_r;
