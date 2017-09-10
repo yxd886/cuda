@@ -27,7 +27,7 @@ unsigned long long dtime_usec(unsigned long long start){
   return ((tv.tv_sec*USECPSEC)+tv.tv_usec)-start;
 }
 
-#define APPRX_CLKS_PER_SEC 1000000000ULL
+#define APPRX_CLKS_PER_SEC 1700000000ULL
 __global__ void delay_kernel(unsigned seconds){
 
   unsigned long long dt = clock64();
