@@ -306,7 +306,7 @@ int matrixMultiply(int argc, char **argv, int block_size, dim3 &dimsA, dim3 &dim
     printf(
         "Performance= %.2f GFlop/s, Time= %.3f msec, Size= %.0f Ops, WorkgroupSize= %u threads/block\n",
         gigaFlops,
-        msecPerMatrixMul,
+        msecTotal,
         flopsPerMatrixMul,
         threads.x * threads.y);
 
