@@ -28,6 +28,9 @@
 // System includes
 #include <stdio.h>
 #include <assert.h>
+#include <time.h>
+#include <sys/time.h>
+#define USECPSEC 1000000ULL
 
 // CUDA runtime
 #include <cuda_runtime.h>
@@ -359,6 +362,7 @@ int matrixMultiply(int argc, char **argv, int block_size, dim3 &dimsA, dim3 &dim
  */
 int main(int argc, char **argv)
 {
+	unsigned long long difft = dtime_usec(0);
     printf("[Matrix Multiply Using CUDA] - Starting...\n");
 
     if (checkCmdLineFlag(argc, (const char **)argv, "help") ||
@@ -447,6 +451,9 @@ int main(int argc, char **argv)
     printf("MatrixA(%d,%d), MatrixB(%d,%d)\n", dimsA.x, dimsA.y, dimsB.x, dimsB.y);
 
     int matrix_result = matrixMultiply(argc, argv, block_size, dimsA, dimsB);
+    difft = dtime_usec(difft);
+ 	printf("kernel duration: %fs\n", difft/(float)USECPSEC);
+ 	return 0;
 
     exit(matrix_result);
 }
