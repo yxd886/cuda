@@ -126,6 +126,12 @@ void constantInit(float *data, int size, float val)
         data[i] = val;
     }
 }
+unsigned long long dtime_usec(unsigned long long start){
+
+  timeval tv;
+  gettimeofday(&tv, 0);
+  return ((tv.tv_sec*USECPSEC)+tv.tv_usec)-start;
+}
 
 /**
  * Run a simple test of matrix multiplication using CUDA
